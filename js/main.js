@@ -12,7 +12,7 @@
   function targetAppear(){
     start = new Date().getTime();
     console.log(start);
-    var randomDimension = (Math.random() * 200) + 100;
+    var randomDimension = (Math.random() * 200) + 20;
 
     target.className = "appear";
 
@@ -21,8 +21,8 @@
     } else {
       target.style.borderRadius = "0%";
     }
-    target.style.width = randomDimension;
-    target.style.height = randomDimension;
+    target.style.width = randomDimension + "px";
+    target.style.height = randomDimension + "px";
     target.style.display = "block";
     target.style.backgroundColor = getRandomColor();
     target.style.top = Math.random() * 70 + "vh";
@@ -41,7 +41,7 @@
 
   function checkHighScore(time, currentScore) {
     if (time < currentScore){
-      highScore.innerHTML = time;
+      highScore.innerHTML = time + "s";
       console.log(time, currentScore);
       currentHighScore = time;
     }

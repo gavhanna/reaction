@@ -162,8 +162,8 @@ body {
 .record {
   margin: 20px;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: -4px;
+  left: -10px;
   text-align: center; }
   .record #high-score {
     font-size: 1.5rem;
