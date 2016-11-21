@@ -4,7 +4,9 @@
   var start = new Date().getTime();
   var sound = new Audio("../sound/water-drop.wav");
   sound.volume = "0.2";
-  
+  var highScore = document.getElementById("high-score");
+  var currentHighScore = 99999;
+
   target.addEventListener("click", targetDisappear);
 
   function targetAppear(){
@@ -28,12 +30,21 @@
   }
 
   function targetDisappear(){
+    var end = new Date().getTime();
+    var time = (end - start) / 1000;
     sound.play();
     target.className = "disappear";
-    var end = new Date().getTime();
-    //target.style.display = "none";
     setTimeout(targetAppear, Math.random() * 2000);
-    result.innerHTML = (end - start) / 1000 + "s";
+    result.innerHTML = time + "s";
+    checkHighScore(time, currentHighScore);
+  }
+
+  function checkHighScore(time, currentScore) {
+    if (time < currentScore){
+      highScore.innerHTML = time;
+      console.log(time, currentScore);
+      currentHighScore = time;
+    }
   }
 
   function getRandomColor() {
